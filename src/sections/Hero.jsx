@@ -25,8 +25,8 @@ const Hero = () => {
             </LinkScroll>
           </div>
 
-          <div className="absolute -top-0 right-0 w-[100vw] pointer-events-none">
-            {/* <img src="/images/hero.gif" className="max-lg:h-auto" /> */}
+          <div className="absolute -top-0 right-0 w-[100vw] pointer-events-none opacity-70">
+            <img autoPlay src="/images/hero.gif" className="max-lg:h-auto" />
           </div>
         </div>
       </Element>

@@ -6,7 +6,7 @@ export const features = [
     title: "Boost Efficiency with AI",
     text: "ReplicAIDE takes over repetitive tasks, allowing you to focus on what matters most. It's like having a dedicated assistant 24/7, bringing a whole new level of productivity to your day.",
     button: {
-      icon: "/images/demo.svg",
+      icon: "/images/docs.svg",
       title: "Watch the demo",
     },
   },
@@ -17,7 +17,7 @@ export const features = [
     title: "Never Miss a Word",
     text: "ReplicAIDE's live transcription services ensure that all your meetings and conversations are captured accurately, making sure nothing slips through the cracks.",
     button: {
-      icon: "/images/transcription.svg",
+      icon: "/images/docs.svg",
       title: "Try Transcription",
     },
   },
@@ -98,7 +98,7 @@ export const plans = [
       "Live Transcription (10 hrs/month)",
       "Email Support",
     ],
-    icon: "/images/basic.svg",
+    icon: "/images/hexagon.svg",
     logo: "/images/plan-1.png",
   },
   {
@@ -113,7 +113,7 @@ export const plans = [
       "AI Agent with Customization",
       "Priority Support",
     ],
-    icon: "/images/pro.svg",
+    icon: "/images/hexagon.svg",
     logo: "/images/plan-2.png",
   },
   {
@@ -128,7 +128,7 @@ export const plans = [
       "Advanced Transcription",
       "Dedicated Support",
     ],
-    icon: "/images/enterprise.svg",
+    icon: "/images/hexagon.svg",
     logo: "/images/plan-3.png",
   },
 ];
@@ -138,7 +138,7 @@ export const testimonials = [
     id: "0",
     name: "Sarah Johnson",
     role: "Acme Corp",
-    avatarUrl: "/images/testimonials/sarah-johnson.png",
+    avatarUrl: "/images/testimonials/alicia-barker.png",
     comment:
       "ReplicAIDE has transformed how our team manages tasks. The live transcription is a game-changer!",
   },
@@ -146,7 +146,7 @@ export const testimonials = [
     id: "1",
     name: "David Clark",
     role: "Tech Innovators",
-    avatarUrl: "/images/testimonials/david-clark.png",
+    avatarUrl: "/images/testimonials/alicia-barker.png",
     comment:
       "The AI assistant takes care of everything. It's like having a real team member.",
   },
@@ -154,7 +154,7 @@ export const testimonials = [
     id: "2",
     name: "Emily White",
     role: "NextGen",
-    avatarUrl: "/images/testimonials/emily-white.png",
+    avatarUrl: "/images/testimonials/alicia-barker.png",
     comment:
       "Adopting ReplicAIDE was easy. Our team productivity has improved significantly.",
   },

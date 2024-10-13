@@ -42,7 +42,7 @@ const Pricing = () => {
                 width={960}
                 height={380}
                 alt="outline"
-                className="relative z-2"
+                className={clsx("relative z-2 transition-all duration-500")}
               />
               <img
                 src="/images/bg-outlines-fill.png"

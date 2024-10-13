@@ -28,6 +28,10 @@
   input {
     @apply tracking-[-0.03em];
   }
+
+  span {
+    will-change: transform, opacity;
+  }
 }
 
 @layer utilities {

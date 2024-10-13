@@ -19,8 +19,8 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+      - name: Install dependencies with legacy peer deps
+        run: npm ci --legacy-peer-deps  # Added --legacy-peer-deps to resolve peer dependency conflict
 
       - name: Build project
         run: npm run build
