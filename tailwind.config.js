@@ -1,33 +1,34 @@
 /** @type {import('tailwindcss').Config} */
 
 export default {
+  mode: 'jit',
   content: [
     './index.html',
     './src/**/*.{js,jsx,ts,tsx}', // Make sure to include all your files
   ],  theme: {
     extend: {
       colors: {
-        p1: '#2EF2FF',
-        p2: '#3C52D9',
-        p3: '#C8EA80',
-        p4: '#EAEDFF',
-        p5: '#C4CBF5',
-        s1: '#080D27',
-        s2: '#0C1838',
-        s3: '#334679',
-        s4: '#1959AD',
-        s5: '#263466',
+        p1: '#FF5F1F',
+        p2: '#D63A0A',
+        p3: '#FFF500',
+        p4: '#FFF6F3',
+        p5: '#FFF5F1',
+        s1: '#080600',
+        s2: '#4F1200',
+        s3: '#FB7038',
+        s4: '#C14919',
+        s5: '#683B27',
         black: {
           DEFAULT: '#000000',
-          100: '#05091D',
+          100: '#170700',
         },
       },
       boxShadow: {
-        100: '0px 4px 4px rgba(0, 0, 0, 0.25), 0px 16px 24px rgba(0, 0, 0, 0.25), inset 0px 3px 6px #1959AD',
-        200: '0px 4px 4px rgba(0, 0, 0, 0.25), 0px 16px 24px rgba(0, 0, 0, 0.25), inset 0px 4px 10px #3391FF',
-        300: '0px 4px 4px rgba(0, 0, 0, 0.25), 0px 16px 24px rgba(0, 0, 0, 0.25), inset 0px 3px 6px #1959AD',
+        100: '0px 4px 4px rgba(0, 0, 0, 0.25), 0px 16px 24px rgba(0, 0, 0, 0.25), inset 0px 3px 6px #C14919',
+        200: '0px 4px 4px rgba(0, 0, 0, 0.25), 0px 16px 24px rgba(0, 0, 0, 0.25), inset 0px 4px 10px #FFA553',
+        300: '0px 4px 4px rgba(0, 0, 0, 0.25), 0px 16px 24px rgba(0, 0, 0, 0.25), inset 0px 3px 6px #C14919',
         400: 'inset 0px 2px 4px 0 rgba(255, 255, 255, 0.05)',
-        500: '0px 16px 24px rgba(0, 0, 0, 0.25), 0px -14px 48px rgba(40, 51, 111, 0.7)',
+        500: '0px 16px 24px rgba(0, 0, 0, 0.25), 0px -14px 48px rgba(151, 97, 47, 0.4)',
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],

@@ -37,7 +37,7 @@
   }
 
   .h1 {
-    @apply text-[84px] font-black leading-[84px] tracking-[-0.03em];
+    @apply text-[78px] font-black leading-[84px] tracking-[-0.03em];
   }
 
   .h2 {
@@ -99,45 +99,45 @@
   /* END of Typography */
   /* START of Gradients */
   .g1 {
-    background: linear-gradient(rgba(196, 203, 245, 0.5), transparent);
+    background: linear-gradient(rgba(255, 214, 0, 0.5), transparent);
   }
 
   .g2 {
-    background: linear-gradient(#3062a3, #19549f);
+    background: linear-gradient(#E44E20, #D63A0A);
   }
 
   .g3 {
-    background: linear-gradient(#3c52d9, #0c1838);
+    background: linear-gradient(#AD4B2D, #1A0801);
   }
 
   .g4 {
-    background: linear-gradient(#253575, #162561);
+    background: linear-gradient(#410F00, #320C00);
   }
 
   .g5 {
-    background: linear-gradient(#334679, #162561);
+    background: linear-gradient(#651800, #4B1200);
   }
 
   .g6 {
-    background: linear-gradient(#334679, #0c1838);
+    background: linear-gradient(#651800, #1A0801);
   }
 
   .g7 {
-    background: linear-gradient(#1b275a, #0e1434);
+    background: linear-gradient(#220C02, #1A0800);
   }
 
   .g8 {
-    background: linear-gradient(to right, transparent, #2ef2ff, transparent);
+    background: linear-gradient(to right, transparent, #FF5F1F, transparent);
   }
 
   .g9 {
-    background: linear-gradient(#080d27, transparent);
+    background: linear-gradient(#1A0801, transparent);
   }
 
   /* END of Gradients */
   /* START of Common */
   .container {
-    @apply mx-auto max-w-[1252px] px-16 max-xl:px-10 max-lg:px-6 max-sm:px-4;
+    @apply mx-auto max-w-[1400px] px-16 max-xl:px-10 max-lg:px-6 max-sm:px-4;
   }
 
   .caption {
