@@ -98,7 +98,7 @@ export const plans = [
       "Live Transcription (10 hrs/month)",
       "Email Support",
     ],
-    icon: "/images/hexagon.svg",
+    icon: "/images/circle.svg",
     logo: "/images/plan-1.png",
   },
   {
@@ -128,7 +128,7 @@ export const plans = [
       "Advanced Transcription",
       "Dedicated Support",
     ],
-    icon: "/images/hexagon.svg",
+    icon: "/images/triangle.svg",
     logo: "/images/plan-3.png",
   },
 ];
@@ -152,6 +152,14 @@ export const testimonials = [
   },
   {
     id: "2",
+    name: "Emily White",
+    role: "NextGen",
+    avatarUrl: "/images/testimonials/alicia-barker.png",
+    comment:
+      "Adopting ReplicAIDE was easy. Our team productivity has improved significantly.",
+  },
+  {
+    id: "3",
     name: "Emily White",
     role: "NextGen",
     avatarUrl: "/images/testimonials/alicia-barker.png",
