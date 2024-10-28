@@ -48,7 +48,7 @@ const Button = ({
         "relative p-0.5 g5 rounded-2xl shadow-500 group cursor-pointer",
         containerClassName
       )}
-      onClick={onclick}
+      onClick={onClick}
     >
       <Inner />
     </button>

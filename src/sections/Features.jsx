@@ -1,32 +1,43 @@
-import { motion } from "framer-motion";
+import clsx from "clsx";
+import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { Element } from "react-scroll";
 import Button from "../components/Button";
+import VideoPlayer from "../components/VideoPlayer.jsx";
 import { details, features } from "../constants/index.jsx";
+import { openPopup } from "../stores/popupStore";
 
 // Variants for parallax scaling
 const parallaxVariants = {
-  hidden: { scale: 0.8, opacity: 0 }, // Initial small size and invisible
-  visible: { scale: 1, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }, // Full size when visible
+  hidden: { scale: 0.8, opacity: 0 },
+  visible: { scale: 1, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } },
 };
 
 // Variants for the fade-in of the details div
 const detailsVariants = {
-  hidden: { opacity: 0, y: 50 }, // Starts with fade from bottom
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }, // Fades in from bottom
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
+
+// Variants for the card flip animation
+const flipVariants = {
+  hidden: { rotateY: 180, opacity: 0 },
+  visible: { rotateY: 0, opacity: 1, transition: { duration: 0.5, ease: "easeOut" } },
+  exit: { rotateY: -180, opacity: 0, transition: { duration: 0.5, ease: "easeIn" } },
 };
 
 const Features = () => {
   const [scrollY, setScrollY] = useState(0);
   const [offsetY, setOffsetY] = useState(0);
+  const [isOnDemo, setIsOnDemo] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY); // Get the current scroll position
-      const element = document.getElementById('features-section');
+      setScrollY(window.scrollY);
+      const element = document.getElementById("features-section");
       if (element) {
         const rect = element.getBoundingClientRect();
-        setOffsetY(rect.top); // Get the top offset of the section relative to the viewport
+        setOffsetY(rect.top);
       }
     };
 
@@ -34,49 +45,109 @@ const Features = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Dynamic scaling and translate based on scroll position
-  const scaleValue = Math.max(0.6, Math.min(1 + (scrollY - offsetY) * 0.00009, 1)); // Adjust the scale range here
-  const translateY = Math.min((scrollY - offsetY) * 0.13, 0); // Adjust the vertical translation (translateY)
+  const scaleValue = Math.max(0.6, Math.min(1 + (scrollY - offsetY) * 0.00009, 1));
+  const translateY = Math.min((scrollY - offsetY) * 0.13, 0);
 
   return (
     <section>
       <Element name="features" id="features-section">
         <motion.div
           className="container"
-          style={{ 
-            transform: `scale(${scaleValue}) translateY(${translateY}px)` // Apply both scale and translateY
+          style={{
+            transform: `scale(${scaleValue}) translateY(${translateY}px)`,
           }}
         >
           <div className="relative flex md:flex-wrap flex-nowrap border-2 border-s3 rounded-7xl md:overflow-hidden max-md:flex-col feature-after md:g7 max-md:border-none max-md:rounded-none max-md:gap-3">
-            {features.map(({ id, icon, caption, title, text, button }) => (
-              <div
-                key={id}
-                className="relative z-2 md:px-10 px-5 md:pb-10 pb-5 flex-50 max-md:g7 max-md:border-2 max-md:border-s3 max-md:rounded-3xl max-md:flex-320"
-              >
-                <div className="w-full flex justify-start items-start">
-                  <div className="-ml-3 mb- flex items-center justify-center flex-col">
-                    <div className="w-0.5 h-16 bg-s3" />
-                    <img
-                      src={icon}
-                      className="size-28 "
-                      alt={title}
+            {/* Feature 0 - Conditional Rendering with Card Flip Animation */}
+            <div
+              className={clsx(
+                "relative z-2 flex-50 max-md:g7 max-md:border-2 max-md:border-s3 max-md:rounded-3xl max-md:flex-320 overflow-hidden",
+                !isOnDemo && "md:px-10 px-5 md:pb-10 pb-5"
+              )}
+            >
+              <AnimatePresence mode="wait">
+                {isOnDemo ? (
+                  <motion.div
+                    key="demo"
+                    className="h-full w-full flex justify-center items-center"
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    variants={flipVariants}
+                  >
+                    <VideoPlayer
+                      src="/images/demo.mp4"
+                      thumbnailSrc="/images/thumbnail.jpg"
+                      pressedClose={() => setIsOnDemo(false)}
                     />
-                  </div>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="content"
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    variants={flipVariants}
+                  >
+                    <div className="w-full flex justify-start items-start">
+                      <div className="-ml-3 mb-4 flex items-center justify-center flex-col">
+                        <div className="w-0.5 h-16 bg-s3" />
+                        <img
+                          src={features[0].icon}
+                          className="size-28"
+                          alt={features[0].title}
+                        />
+                      </div>
+                    </div>
+                    <p className="caption mb-5 max-md:mb-6">{features[0].caption}</p>
+                    <h2 className="max-w-400 mb-7 h3 text-p4 max-md:mb-6 max-md:h5">
+                      {features[0].title}
+                    </h2>
+                    <p className="mb-11 body-1 max-md:mb-8 max-md:body-3">
+                      {features[0].text}
+                    </p>
+                    <Button
+                      icon={features[0].button.icon}
+                      onClick={() => setIsOnDemo(true)}
+                    >
+                      {features[0].button.title}
+                    </Button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Feature 1 */}
+            <div className="relative z-2 md:px-10 px-5 md:pb-10 pb-5 flex-50 max-md:g7 max-md:border-2 max-md:border-s3 max-md:rounded-3xl max-md:flex-320">
+              <div className="w-full flex justify-start items-start">
+                <div className="-ml-3 mb-4 flex items-center justify-center flex-col">
+                  <div className="w-0.5 h-16 bg-s3" />
+                  <img
+                    src={features[1].icon}
+                    className="size-28"
+                    alt={features[1].title}
+                  />
                 </div>
-                <p className="caption mb-5 max-md:mb-6">{caption}</p>
-                <h2 className="max-w-400 mb-7 h3 text-p4 max-md:mb-6 max-md:h5">
-                  {title}
-                </h2>
-                <p className="mb-11 body-1 max-md:mb-8 max-md:body-3">{text}</p>
-                <Button icon={button.icon}>{button.title}</Button>
               </div>
-            ))}
+              <p className="caption mb-5 max-md:mb-6">{features[1].caption}</p>
+              <h2 className="max-w-400 mb-7 h3 text-p4 max-md:mb-6 max-md:h5">
+                {features[1].title}
+              </h2>
+              <p className="mb-11 body-1 max-md:mb-8 max-md:body-3">
+                {features[1].text}
+              </p>
+              <Button icon={features[1].button.icon} onClick={() => openPopup()}>
+                {features[1].button.title}
+              </Button>
+            </div>
+
+            {/* Details Section */}
             <motion.ul
               className="relative flex justify-around flex-grow px-[5%] border-2 border-s3 rounded-7xl max-md:hidden z-2"
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.6 }}
-              variants={detailsVariants} // Fade from bottom to top for details section
+              viewport={{ once: true, amount: 0.3 }}
+              variants={detailsVariants}
             >
               <div className="absolute bg-s3/20 top-[38%] left-0 right-0 w-full h-[1px]" />
               {details.map(({ id, icon, title }) => (

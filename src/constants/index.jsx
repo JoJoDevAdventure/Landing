@@ -19,6 +19,7 @@ export const features = [
     button: {
       icon: "/images/docs.svg",
       title: "Try Transcription",
+      action: ""
     },
   },
 ];

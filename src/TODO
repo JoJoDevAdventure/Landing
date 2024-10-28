@@ -1,0 +1,18 @@
+<!-- - Thumbnail Update -->
+    <!-- •   Replace the current video thumbnail with a selected image. -->
+	<!-- •	Add a transparent video player button overlay to indicate it’s a video. -->
+    
+<!-- - Video Editing -->
+	<!-- •	Edit the video to remove any silences and graphics indicating waiting (such as rotating indicators), to ensure smoother and more continuous conversation flow. -->
+	<!-- •	Full-Screen Video Controls -->
+	<!-- •	Hide or remove window controls when the video is played in full-screen mode. -->
+
+<!-- - Section Visibility -->
+	<!-- •	Hide the following sections on the website: -->
+	<!-- •	Testimonials -->
+	<!-- •	Pricing -->
+
+<!-- - Call to Action (CTA) Buttons
+	•	Ensure all CTA buttons link directly to the sign-up form. -->
+
+<!-- - About us Page -->

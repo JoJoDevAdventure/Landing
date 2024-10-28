@@ -9,6 +9,7 @@ const CustomInput = ({
   onChange,
   value,
   name,
+  required,
 }) => {
   const [isActive, setIsActive] = useState(false);
 
@@ -37,6 +38,7 @@ const CustomInput = ({
           onChange={onChange}
           value={value}
           name={name}
+          required={required}
         />
       </div>
     </>
