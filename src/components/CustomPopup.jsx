@@ -8,6 +8,8 @@ import Button from "./Button";
 import CustomInput from "./CustomInput";
 
 const CustomPopup = () => {
+  const accessKey = process.env.REACT_APP_WEB3FORMS_ACCESS_KEY;
+
   const { isOpen } = useSnapshot(popupState);
   const [formData, setFormData] = useState({
     fullName: '',
@@ -24,7 +26,7 @@ const CustomPopup = () => {
 
     try {
       const response = await axios.post("https://api.web3forms.com/submit", {
-        access_key: "2cd9b9a5-f392-423f-be49-7a94cedb5b1a",
+        access_key: accessKey,
         name: formData.fullName,
         email: formData.email,
         phoneNumber: formData.phoneNumber
