@@ -26,7 +26,7 @@ const CustomPopup = () => {
 
     try {
       const response = await axios.post("https://api.web3forms.com/submit", {
-        access_key: "2cd9b9a5-f392-423f-be49-7a94cedb5b1a", // Replace with your Web3 Forms Access Key
+        access_key: "972ed979-257b-42ba-8b8e-e32394614bef", // Replace with your Web3 Forms Access Key
         name: formData.fullName,
         email: formData.email,
         phoneNumber: formData.phoneNumber
