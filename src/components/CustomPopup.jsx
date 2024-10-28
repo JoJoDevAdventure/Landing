@@ -24,11 +24,9 @@ const CustomPopup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(apiKey)
-
     try {
       const response = await axios.post("https://api.web3forms.com/submit", {
-        access_key: apiKey,
+        access_key: "2cd9b9a5-f392-423f-be49-7a94cedb5b1a", // Replace with your Web3 Forms Access Key
         name: formData.fullName,
         email: formData.email,
         phoneNumber: formData.phoneNumber
