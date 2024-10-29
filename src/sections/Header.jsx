@@ -1,10 +1,11 @@
 import clsx from "clsx";
 import React, { useEffect, useState } from "react";
 import { Link as LinkScroll } from "react-scroll";
-
-
+import { useSnapshot } from "valtio";
+import state from "../stores/state";
 
 const Header = () => {
+  const snapshot = useSnapshot(state);
   const [isOpen, setIsOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
@@ -42,8 +43,18 @@ const Header = () => {
       )}
     >
       <div className="container flex h-14 items-center max-lg:px-5">
-        <a className="lg:hidden flex-1 cursor-pointer z-2" onClick={()=>{setIsOpen(false)}}>
-          <img src="/images/ReplicAIDE.svg" width={115} height={55} alt="Logo" />
+        <a
+          className="lg:hidden flex-1 cursor-pointer z-2"
+          onClick={() => {
+            setIsOpen(false);
+          }}
+        >
+          <img
+            src="/images/ReplicAIDE.svg"
+            width={115}
+            height={55}
+            alt="Logo"
+          />
         </a>
         <div
           className={clsx(
@@ -60,9 +71,21 @@ const Header = () => {
             <nav className="max-lg:relative max-lg:z-2 max-lg:my-auto">
               <ul className="flex max-lg:block max-lg:px-12">
                 <li className="nav-li">
-                  <NavLink title="features" onClick={()=>{setIsOpen(false)}}/>
+                  <NavLink
+                    title="features"
+                    onClick={() => {
+                      state.isOnAbout = false; // Switch to About page
+                      setIsOpen(false); // Close the side menu
+                    }}
+                  />
                   <div className="dot" />
-                  <NavLink title="About us" onClick={()=>{setIsOpen(false)}}/>
+                  <NavLink
+                    title="faq"
+                    onClick={() => {
+                      state.isOnAbout = false; // Switch to About page
+                      setIsOpen(false); // Close the side menu
+                    }}
+                  />
                 </li>
 
                 <li className="nav-logo">
@@ -74,7 +97,10 @@ const Header = () => {
                     className={clsx(
                       "max-lg:hidden transition-transform duration-500 cursor-pointer"
                     )}
-                    onClick={()=>{setIsOpen(false)}}
+                    onClick={() => {
+                      state.isOnAbout = false; // Switch to About page
+                      setIsOpen(false); // Close the side menu
+                    }}
                   >
                     <img
                       src="/images/ReplicAIDE.svg"
@@ -86,9 +112,21 @@ const Header = () => {
                 </li>
 
                 <li className="nav-li">
-                  <NavLink title="faq" onClick={()=>{setIsOpen(false)}}/>
+                  <NavLink
+                    title="about us"
+                    onClick={() => {
+                      state.isOnAbout = true; // Switch to About page
+                      setIsOpen(false); // Close the side menu
+                    }}
+                  />
                   <div className="dot" />
-                  <NavLink title="contact" onClick={()=>{setIsOpen(false)}}/>
+                  <NavLink
+                    title="contact"
+                    onClick={() => {
+                      state.isOnAbout = false; // Switch to About page
+                      setIsOpen(false); // Close the side menu
+                    }}
+                  />
                 </li>
               </ul>
             </nav>

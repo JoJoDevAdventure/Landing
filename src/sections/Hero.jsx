@@ -86,8 +86,8 @@ const Hero = () => {
             variants={videoVariants}
           >
             <VideoPlayer
-              src="/images/demo.mp4"
-              thumbnailSrc="/images/thumbnail.jpg"
+              src="/images/Demo2.mp4"
+              thumbnailSrc="/images/thumbnail2.jpg"
               fullScreenAllowed={true}
             />
           </motion.div>
