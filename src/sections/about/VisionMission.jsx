@@ -31,7 +31,7 @@ const coreSections = [
 const VisionMission = () => {
      // Ref for the section and useInView to check visibility
      const sectionRef = useRef(null);
-     const isInView = useInView(sectionRef, { once: true });
+     const isInView = useInView(sectionRef, { once: false });
 
   return (
     <div ref={sectionRef} className="flex flex-col gap-8">

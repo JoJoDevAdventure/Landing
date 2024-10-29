@@ -136,7 +136,7 @@ const Values = () => {
 
   // Ref for the section and useInView to check visibility
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true });
+  const isInView = useInView(sectionRef, { once: false });
 
   return (
     <section ref={sectionRef} className="relative py-0 -mt-48 overflow-visible">
