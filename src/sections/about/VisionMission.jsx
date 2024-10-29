@@ -21,7 +21,7 @@ const coreSections = [
     imgSrc: "/images/purpose.png",
   },
   {
-    title: "Focus",
+    title: "Our Focus",
     description:
       "To be the leader in personalized Human²AI interactions, enabling mass collaboration for sustainable, positive relationships.",
     imgSrc: "/images/focus.png",
