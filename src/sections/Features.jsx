@@ -76,8 +76,8 @@ const Features = () => {
                     variants={flipVariants}
                   >
                     <VideoPlayer
-                      src="/images/Demo2.mp4"
-                      thumbnailSrc="/images/thumbnail2.jpg"
+                      src="/images/demo.mp4"
+                      thumbnailSrc="/images/thumbnail.jpg"
                       pressedClose={() => setIsOnDemo(false)}
                     />
                   </motion.div>

@@ -8,7 +8,7 @@ const Partners = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["-60%", "60%"]);
 
   const logos = [
-    "/images/partners/Microsoft.png",
+    "/images/partners/microsoft.png",
     // More logos
   ];
 
