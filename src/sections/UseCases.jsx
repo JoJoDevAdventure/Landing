@@ -54,7 +54,7 @@ const UseCases = () => {
           Elevate Your Service
         </motion.p>
         <motion.h1
-          className="h3 mb-10 text-p4 text-center"
+          className="h3 mb-20 text-p4 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
@@ -74,7 +74,7 @@ const UseCases = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 + index * 0.1 }}
-              className="relative p-6 border border-s3 rounded-xl shadow-md bg-g2 group"
+              className="relative p-6 border border-s3 rounded-xl shadow-md bg-g2 group cursor-pointer"
               whileHover={{ scale: 1.03 }}
             >
               {/* Vertical line with hover animation */}
