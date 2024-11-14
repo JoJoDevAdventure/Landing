@@ -13,7 +13,8 @@ const ROI = () => {
   const planMonthlyCost = plan === "agency" ? 197 : 497;
 
   // Calculation of savings based on the inputs
-  const weeklySavings = employees * dollarsPerHour * hoursPerWeek - (planMonthlyCost / 4);
+  const weeklySavings =
+    employees * dollarsPerHour * hoursPerWeek - planMonthlyCost / 4;
   const monthlySavings = weeklySavings * 4;
   const yearlySavings = weeklySavings * 52;
 
@@ -48,20 +49,23 @@ const ROI = () => {
                 max="500"
                 value={employees}
                 onChange={(e) => setEmployees(Number(e.target.value))}
-                className="w-full accent-p1"
+                className="w-full custom-slider cursor-pointer"
+                style={{ "--progress": `${(employees / 500) * 100}%` }}
               />
               <p className="text-p1 text-center">{employees} Employees</p>
             </div>
 
             <div>
               <p className="h6 mb-2 text-p5">Dollars per Hour</p>
+
               <input
                 type="range"
                 min="10"
                 max="100"
                 value={dollarsPerHour}
                 onChange={(e) => setDollarsPerHour(Number(e.target.value))}
-                className="w-full accent-p1"
+                className="w-full custom-slider cursor-pointer"
+                style={{ "--progress": `${(dollarsPerHour - 10) * 1.25}%` }}
               />
               <p className="text-p1 text-center">${dollarsPerHour} per Hour</p>
             </div>
@@ -74,7 +78,8 @@ const ROI = () => {
                 max="80"
                 value={hoursPerWeek}
                 onChange={(e) => setHoursPerWeek(Number(e.target.value))}
-                className="w-full accent-p1"
+                className="w-full custom-slider cursor-pointer"
+                style={{ "--progress": `${(hoursPerWeek / 80) * 100}%` }}
               />
               <p className="text-p1 text-center">{hoursPerWeek} Hours/Week</p>
             </div>
