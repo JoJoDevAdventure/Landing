@@ -13,10 +13,9 @@ const ROI = () => {
   const planMonthlyCost = plan === "agency" ? 197 : 497;
 
   // Calculation of savings based on the inputs
-  const weeklySavings =
-    employees * dollarsPerHour * hoursPerWeek - planMonthlyCost / 4;
-  const monthlySavings = weeklySavings * 4;
-  const yearlySavings = weeklySavings * 52;
+  const weeklySavings = employees * dollarsPerHour * hoursPerWeek - planMonthlyCost / 4;
+    const monthlySavings = weeklySavings * 4;
+    const yearlySavings = weeklySavings * 52;
 
   return (
     <section className="container mx-auto py-16 border-b-2 border-s2">
