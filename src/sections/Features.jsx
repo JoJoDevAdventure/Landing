@@ -17,6 +17,12 @@ const parallaxVariants = {
   },
 };
 
+
+const fadeUpVariants = {
+  hidden: { opacity: 0, y: 50 }, // Comes from bottom
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
+
 // Variants for the fade-in of the details div
 const detailsVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -69,17 +75,19 @@ const Features = () => {
         {/* Heading with fade-up effect */}
         <motion.h1
           className="h3 mb-0 text-p4 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.9 }}
+          variants={fadeUpVariants} // Apply fade from left to right for title
         >
           Drowning in sales tasks? Send AIDE
         </motion.h1>
         <motion.p
           className="caption mb-2 text-s3 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.9 }}
+          variants={fadeUpVariants} // Apply fade from left to right for title
         >
           Ok, but what is AIDE?
         </motion.p>

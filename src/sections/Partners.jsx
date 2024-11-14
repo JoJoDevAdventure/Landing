@@ -12,15 +12,23 @@ const Partners = () => {
     // More logos
   ];
 
+
+const fadeUpVariants = {
+  hidden: { opacity: 0, y: 50 }, // Comes from bottom
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
+
+
   return (
     <section className="container">
       <div className="max-w-960 relative mx-auto border-l border-r border-b border-s2 bg-s1/50 pb-10 pt-28 max-xl:max-w-4xl max-lg:border-none max-md:pb-32 max-md:pt-16">
         {/* Caption with fade-up effect */}
         <motion.p
           className="caption mb-2 text-s3 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeUpVariants} // Apply fade from left to right for title
         >
           Our Partners
         </motion.p>
@@ -28,9 +36,10 @@ const Partners = () => {
         {/* Heading with fade-up effect */}
         <motion.h1
           className="h3 mb-0 text-p4 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={fadeUpVariants} // Apply fade from left to right for title
         >
           Proud to be partnered with
         </motion.h1>

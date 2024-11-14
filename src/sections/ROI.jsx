@@ -13,34 +13,51 @@ const ROI = () => {
   const planMonthlyCost = plan === "agency" ? 197 : 497;
 
   // Calculation of savings based on the inputs
-  const weeklySavings = employees * dollarsPerHour * hoursPerWeek - planMonthlyCost / 4;
-    const monthlySavings = weeklySavings * 4;
-    const yearlySavings = weeklySavings * 52;
+  const weeklySavings =
+    employees * dollarsPerHour * hoursPerWeek - planMonthlyCost / 4;
+  const monthlySavings = weeklySavings * 4;
+  const yearlySavings = weeklySavings * 52;
+
+  const fadeUpVariants = {
+    hidden: { opacity: 0, y: 50 }, // Fade in from bottom
+    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
+  };
 
   return (
     <section className="container mx-auto py-16 border-b-2 border-s2">
       <Element name="seeMoney" id="seeMoney-section">
         <motion.p
           className="caption mb-2 text-s3 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeUpVariants} // Apply fade from left to right for title
         >
           With our quick ROI calculator
         </motion.p>
         <motion.h1
           className="h3 mb-24 text-p4 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeUpVariants} // Apply fade from left to right for title
         >
           See Money Going Back to Your Bank Account
         </motion.h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <motion.div
+          viewport={{ once: true, amount: 0.5 }}
+          variants={fadeUpVariants} // Apply fade from bottom to top for FAQ items
+          className="grid grid-cols-1 md:grid-cols-2 gap-12"
+        >
           {/* Left Column - Sliders and Plan Selection */}
           <div className="space-y-6 p-6 bg-s1 border-s3 rounded-lg shadow-md">
-            <div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeUpVariants} // Apply fade from left to right for title
+            >
               <p className="h6 mb-2 text-p5">Number of Employees</p>
               <input
                 type="range"
@@ -52,7 +69,7 @@ const ROI = () => {
                 style={{ "--progress": `${(employees / 500) * 100}%` }}
               />
               <p className="text-p1 text-center">{employees} Employees</p>
-            </div>
+            </motion.div>
 
             <div>
               <p className="h6 mb-2 text-p5">Dollars per Hour</p>
@@ -114,7 +131,13 @@ const ROI = () => {
           </div>
 
           {/* Right Column - Savings Display */}
-          <div className="space-y-12 p-8 bg-s2/10 border border-s3 rounded-lg shadow-lg text-center flex flex-col justify-center">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeUpVariants} // Apply fade from left to right for title
+            className="space-y-12 p-8 bg-s2/10 border border-s3 rounded-lg shadow-lg text-center flex flex-col justify-center"
+          >
             <div>
               <motion.div
                 className="h3"
@@ -149,8 +172,8 @@ const ROI = () => {
               </motion.div>
               <p className="text-p2 text-xl">Saved per Year</p>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </Element>
     </section>
   );

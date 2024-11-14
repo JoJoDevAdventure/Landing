@@ -6,24 +6,33 @@ const useCases = [
   {
     category: "CCaaS",
     title: "Customer Support",
-    description: "Streamlining customer support in call centers, making interactions more accessible and efficient."
+    description:
+      "Streamlining customer support in call centers, making interactions more accessible and efficient.",
   },
   {
     category: "Manufacturing",
     title: "Industrial Control",
-    description: "Enabling hands-free control of industrial equipment in noisy environments."
+    description:
+      "Enabling hands-free control of industrial equipment in noisy environments.",
   },
   {
     category: "Language Learning",
     title: "Bilingual Interaction",
-    description: "Supporting users who speak multiple languages to interact in their preferred language."
+    description:
+      "Supporting users who speak multiple languages to interact in their preferred language.",
   },
   {
     category: "Accessibility",
     title: "Software",
-    description: "Enhancing software accessibility for visually impaired users by enabling conversational interactions."
-  }
+    description:
+      "Enhancing software accessibility for visually impaired users by enabling conversational interactions.",
+  },
 ];
+
+const fadeUpVariants = {
+  hidden: { opacity: 0, y: 50 }, // Comes from bottom
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
 
 const UseCases = () => {
   const { scrollY } = useScroll();
@@ -47,17 +56,19 @@ const UseCases = () => {
         {/* Caption and Heading */}
         <motion.p
           className="caption mb-2 text-s3 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeUpVariants} // Apply fade from left to right for title
         >
           Elevate Your Service
         </motion.p>
         <motion.h1
           className="h3 mb-20 text-p4 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeUpVariants} // Apply fade from left to right for title
         >
           Smart Solutions for Every Challenge
         </motion.h1>
@@ -69,11 +80,15 @@ const UseCases = () => {
               key={index}
               style={{
                 x: xTransform,
-                y: [box1Y, box2Y, box3Y, box4Y][index]
+                y: [box1Y, box2Y, box3Y, box4Y][index],
               }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 + index * 0.1 }}
+              transition={{
+                duration: 0.8,
+                ease: "easeOut",
+                delay: 0.3 + index * 0.1,
+              }}
               className="relative p-6 border border-s3 rounded-xl shadow-md bg-g2 group cursor-pointer"
               whileHover={{ scale: 1.03 }}
             >
@@ -82,8 +97,12 @@ const UseCases = () => {
 
               {/* Content of the use case */}
               <div className="pl-8">
-                <p className="caption font-semibold">{useCases[index].category}</p>
-                <h3 className="h4 text-xl font-bold mb-2">{useCases[index].title}</h3>
+                <p className="caption font-semibold">
+                  {useCases[index].category}
+                </p>
+                <h3 className="h4 text-xl font-bold mb-2">
+                  {useCases[index].title}
+                </h3>
                 <p className="text-white/80">{useCases[index].description}</p>
               </div>
             </motion.div>
