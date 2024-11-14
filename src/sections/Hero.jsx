@@ -14,17 +14,29 @@ const Hero = () => {
 
   const h1Variants = {
     hidden: { opacity: 0, x: -100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
   };
 
   const pButtonVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut", delay: 0.2 } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut", delay: 0.2 },
+    },
   };
 
   const videoVariants = {
     hidden: { opacity: 0, x: 100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut", delay: 0.4 } },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.8, ease: "easeOut", delay: 0.4 },
+    },
   };
 
   return (
@@ -49,7 +61,7 @@ const Hero = () => {
                 Super hum<span className="text-p5">ai</span>n assistant
               </div>
               <h1 className="h1 mb-6 text-p4 uppercase max-lg:mb-7 max-lg:h2 max-md:mb-4 max-md:text-3xl max-md:leading-12">
-              Missed calls, hold times & upset clients
+                Missed calls, hold times & upset clients
               </h1>
             </motion.div>
 
@@ -60,16 +72,17 @@ const Hero = () => {
               variants={pButtonVariants}
             >
               <p className="max-w-460 mb-14 body-1 max-md:mb-10 mx-auto lg:mx-0">
-              Is finally a thing of the past! <br/> But don’t take our word for it. Give our voice assistant a listen.
+                Is finally a thing of the past! <br /> But don’t take our word
+                for it. Give our voice assistant a listen.
               </p>
-              <div className="flex flex-row space-x-8"> 
-              <LinkScroll to="features" offset={-100} spy smooth>
-                <Button icon={"/images/zap.svg"} onClick={() => {}}>
-                  Learn More
-                </Button>
-              </LinkScroll>
-              <Button icon={"/images/zap.svg"} onClick={() => openPopup()}>
-                  Try It Now
+              <div className="flex flex-row space-x-8">
+                <LinkScroll to="features" offset={-100} spy smooth>
+                  <Button icon={"/images/zap.svg"} onClick={() => {}}>
+                    Learn More
+                  </Button>
+                </LinkScroll>
+                <Button icon={"/images/zap.svg"} onClick={() => openPopup()}>
+                  Request a Demo
                 </Button>
               </div>
             </motion.div>
