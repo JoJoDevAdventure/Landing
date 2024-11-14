@@ -49,7 +49,7 @@ const Hero = () => {
                 Super hum<span className="text-p5">ai</span>n assistant
               </div>
               <h1 className="h1 mb-6 text-p4 uppercase max-lg:mb-7 max-lg:h2 max-md:mb-4 max-md:text-3xl max-md:leading-12">
-                Transform Your Business with AI-AGENTS
+              Missed calls, hold times & upset clients
               </h1>
             </motion.div>
 
@@ -60,9 +60,7 @@ const Hero = () => {
               variants={pButtonVariants}
             >
               <p className="max-w-460 mb-14 body-1 max-md:mb-10 mx-auto lg:mx-0">
-                We help agencies and businesses automate customer interactions,
-                cut costs, and convert more leads with our human-like AI voice
-                assistants.
+              Is finally a thing of the past! <br/> But don’t take our word for it. Give our voice assistant a listen.
               </p>
               <div className="flex flex-row space-x-8"> 
               <LinkScroll to="features" offset={-100} spy smooth>
@@ -89,6 +87,7 @@ const Hero = () => {
               src="/images/Demo2.mp4"
               thumbnailSrc="/images/thumbnail2.jpg"
               fullScreenAllowed={true}
+              noTopBar
             />
           </motion.div>
         </motion.div>

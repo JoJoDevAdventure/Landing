@@ -1,0 +1,155 @@
+import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { Element } from "react-scroll";
+
+const ROI = () => {
+  // State variables for sliders and plan selection
+  const [employees, setEmployees] = useState(10);
+  const [dollarsPerHour, setDollarsPerHour] = useState(20);
+  const [hoursPerWeek, setHoursPerWeek] = useState(40);
+  const [plan, setPlan] = useState("agency");
+
+  // Monthly cost for each plan
+  const planMonthlyCost = plan === "agency" ? 197 : 497;
+
+  // Calculation of savings based on the inputs
+  const weeklySavings = employees * dollarsPerHour * hoursPerWeek - (planMonthlyCost / 4);
+  const monthlySavings = weeklySavings * 4;
+  const yearlySavings = weeklySavings * 52;
+
+  return (
+    <section className="container mx-auto py-16 border-b-2 border-s2">
+      <Element name="seeMoney" id="seeMoney-section">
+        <motion.p
+          className="caption mb-2 text-s3 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          With our quick ROI calculator
+        </motion.p>
+        <motion.h1
+          className="h3 mb-24 text-p4 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+        >
+          See Money Going Back to Your Bank Account
+        </motion.h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {/* Left Column - Sliders and Plan Selection */}
+          <div className="space-y-6 p-6 bg-s1 border-s3 rounded-lg shadow-md">
+            <div>
+              <p className="h6 mb-2 text-p5">Number of Employees</p>
+              <input
+                type="range"
+                min="1"
+                max="500"
+                value={employees}
+                onChange={(e) => setEmployees(Number(e.target.value))}
+                className="w-full accent-p1"
+              />
+              <p className="text-p1 text-center">{employees} Employees</p>
+            </div>
+
+            <div>
+              <p className="h6 mb-2 text-p5">Dollars per Hour</p>
+              <input
+                type="range"
+                min="10"
+                max="100"
+                value={dollarsPerHour}
+                onChange={(e) => setDollarsPerHour(Number(e.target.value))}
+                className="w-full accent-p1"
+              />
+              <p className="text-p1 text-center">${dollarsPerHour} per Hour</p>
+            </div>
+
+            <div>
+              <p className="h6 mb-2 text-p5">Hours per Week per Employee</p>
+              <input
+                type="range"
+                min="1"
+                max="80"
+                value={hoursPerWeek}
+                onChange={(e) => setHoursPerWeek(Number(e.target.value))}
+                className="w-full accent-p1"
+              />
+              <p className="text-p1 text-center">{hoursPerWeek} Hours/Week</p>
+            </div>
+
+            {/* Plan Selection */}
+            <div className="space-y-2">
+              <p className="caption text-p2">Choose a Plan</p>
+              <div className="flex gap-4">
+                <label className="flex items-center cursor-pointer">
+                  <input
+                    type="radio"
+                    name="plan"
+                    value="agency"
+                    checked={plan === "agency"}
+                    onChange={() => setPlan("agency")}
+                    className="mr-2 accent-p1"
+                  />
+                  Agency Plan ($197 per Month)
+                </label>
+                <label className="flex items-center cursor-pointer">
+                  <input
+                    type="radio"
+                    name="plan"
+                    value="saas"
+                    checked={plan === "saas"}
+                    onChange={() => setPlan("saas")}
+                    className="mr-2 accent-p1"
+                  />
+                  Full SaaS Plan ($497 per Month)
+                </label>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column - Savings Display */}
+          <div className="space-y-12 p-8 bg-s2/10 border border-s3 rounded-lg shadow-lg text-center flex flex-col justify-center">
+            <div>
+              <motion.div
+                className="h3"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+              >
+                ${weeklySavings.toFixed(2)}
+              </motion.div>
+              <p className="text-p2 text-xl">Saved per Week</p>
+            </div>
+
+            <div>
+              <motion.div
+                className="h3"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+              >
+                ${monthlySavings.toFixed(2)}
+              </motion.div>
+              <p className="text-p2 text-xl">Saved per Month</p>
+            </div>
+            <div>
+              <motion.div
+                className="h3"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.9, ease: "easeOut" }}
+              >
+                ${yearlySavings.toFixed(2)}
+              </motion.div>
+              <p className="text-p2 text-xl">Saved per Year</p>
+            </div>
+          </div>
+        </div>
+      </Element>
+    </section>
+  );
+};
+
+export default ROI;

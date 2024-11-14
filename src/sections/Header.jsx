@@ -50,7 +50,7 @@ const Header = () => {
           }}
         >
           <img
-            src="/images/ReplicAIDE.svg"
+            src="/images/replicaide.png"
             width={115}
             height={55}
             alt="Logo"
@@ -80,7 +80,7 @@ const Header = () => {
                   />
                   <div className="dot" />
                   <NavLink
-                    title="faq"
+                    title="Solutions"
                     onClick={() => {
                       state.isOnAbout = false; // Switch to About page
                       setIsOpen(false); // Close the side menu
@@ -103,7 +103,7 @@ const Header = () => {
                     }}
                   >
                     <img
-                      src="/images/ReplicAIDE.svg"
+                      src="/images/replicaide.png"
                       width={160}
                       height={55}
                       alt="logo"

@@ -28,22 +28,26 @@ export const details = [
   {
     id: "0",
     icon: "/images/detail-1.png",
-    title: "AI-Powered Agent",
+    title: "IVA Agents",
+    description: "Intelligent Virtual Assistant",
   },
   {
     id: "1",
     icon: "/images/detail-2.png",
-    title: "Collaborate in Real-Time",
+    title: "Global Interactions",
+    description: "speaks, translates, and understands over 60 languages",
   },
   {
     id: "2",
     icon: "/images/detail-3.png",
-    title: "Live Transcription Services",
+    title: "Integrate Seamlessly",
+    description: "With the platforms your team is already a pro at using",
   },
   {
     id: "3",
     icon: "/images/detail-4.png",
-    title: "24/7 AI Assistant Support",
+    title: "Take chaotic calls",
+    description: "By filtering out background noise and zeroing in on the main speaker",
   },
 ];
 

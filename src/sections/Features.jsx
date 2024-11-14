@@ -10,7 +10,11 @@ import { openPopup } from "../stores/popupStore";
 // Variants for parallax scaling
 const parallaxVariants = {
   hidden: { scale: 0.8, opacity: 0 },
-  visible: { scale: 1, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
 };
 
 // Variants for the fade-in of the details div
@@ -22,8 +26,16 @@ const detailsVariants = {
 // Variants for the card flip animation
 const flipVariants = {
   hidden: { rotateY: 180, opacity: 0 },
-  visible: { rotateY: 0, opacity: 1, transition: { duration: 0.5, ease: "easeOut" } },
-  exit: { rotateY: -180, opacity: 0, transition: { duration: 0.5, ease: "easeIn" } },
+  visible: {
+    rotateY: 0,
+    opacity: 1,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+  exit: {
+    rotateY: -180,
+    opacity: 0,
+    transition: { duration: 0.5, ease: "easeIn" },
+  },
 };
 
 const Features = () => {
@@ -45,19 +57,39 @@ const Features = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scaleValue = Math.max(0.6, Math.min(1 + (scrollY - offsetY) * 0.00009, 1));
+  const scaleValue = Math.max(
+    0.6,
+    Math.min(1 + (scrollY - offsetY) * 0.00009, 1)
+  );
   const translateY = Math.min((scrollY - offsetY) * 0.13, 0);
 
   return (
     <section>
       <Element name="features" id="features-section">
+        {/* Heading with fade-up effect */}
+        <motion.h1
+          className="h3 mb-0 text-p4 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+        >
+          Drowning in sales tasks? Send AIDE
+        </motion.h1>
+        <motion.p
+          className="caption mb-2 text-s3 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          Ok, but what is AIDE?
+        </motion.p>
         <motion.div
           className="container"
           style={{
             transform: `scale(${scaleValue}) translateY(${translateY}px)`,
           }}
         >
-          <div className="relative flex md:flex-wrap flex-nowrap border-2 border-s3 rounded-7xl md:overflow-hidden max-md:flex-col feature-after md:g7 max-md:border-none max-md:rounded-none max-md:gap-3">
+          <div className="relative flex md:flex-wrap flex-nowrap border-2 border-s3 rounded-7xl md:overflow-hidden max-md:flex-col feature-after md:g7 max-md:border-none max-md:rounded-none max-md:gap-3 mt-20">
             {/* Feature 0 - Conditional Rendering with Card Flip Animation */}
             <div
               className={clsx(
@@ -99,7 +131,9 @@ const Features = () => {
                         />
                       </div>
                     </div>
-                    <p className="caption mb-5 max-md:mb-6">{features[0].caption}</p>
+                    <p className="caption mb-5 max-md:mb-6">
+                      {features[0].caption}
+                    </p>
                     <h2 className="max-w-400 mb-7 h3 text-p4 max-md:mb-6 max-md:h5">
                       {features[0].title}
                     </h2>
@@ -136,7 +170,10 @@ const Features = () => {
               <p className="mb-11 body-1 max-md:mb-8 max-md:body-3">
                 {features[1].text}
               </p>
-              <Button icon={features[1].button.icon} onClick={() => openPopup()}>
+              <Button
+                icon={features[1].button.icon}
+                onClick={() => openPopup()}
+              >
                 {features[1].button.title}
               </Button>
             </div>
@@ -150,7 +187,7 @@ const Features = () => {
               variants={detailsVariants}
             >
               <div className="absolute bg-s3/20 top-[38%] left-0 right-0 w-full h-[1px]" />
-              {details.map(({ id, icon, title }) => (
+              {details.map(({ id, icon, title, description }) => (
                 <li key={id} className="relative p-16 px-4 pb-14">
                   <div className="absolute top-8 bottom-0 left-1/2 bg-s3/20 w-[1px] h-full z-20" />
                   <div className="flex items-center justify-center mx-auto mb-3 border-2 border-s2 rounded-full hover:border-s4 transition-all duration-500 size-20">
@@ -163,6 +200,9 @@ const Features = () => {
                   <h3 className="relative z-2 max-36 mx-auto my-0 base-small text-center uppercase">
                     {title}
                   </h3>
+                  <p className="relative z-3 max-26 mx-auto mt-3 text-white/80 text-center">
+                    {description}
+                  </p>
                 </li>
               ))}
             </motion.ul>
