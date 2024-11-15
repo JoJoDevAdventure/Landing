@@ -107,9 +107,10 @@ const VideoPlayer = ({ src, thumbnailSrc, pressedClose, noTopBar}) => {
             alt="Video Thumbnail"
             className="w-full h-full object-cover rounded-lg"
           />
-          <div className="absolute inset-0 flex justify-center items-end mb-6 ">
-            <div className="w-16 h-16 bg-s2 rounded-full flex items-center justify-center shadow-300 hover:shadow-500">
-              <img src="/images/triangle.svg" className="flex rotate-90" />
+
+          <div className="absolute inset-0 flex justify-center items-end mb-6 max-md:mb-2">
+            <div className="w-16 h-16 bg-s2 rounded-full flex items-center justify-center shadow-300 hover:shadow-500 max-md:h-12 max-md:w-12">
+              <img src="/images/triangle.svg" className="flex rotate-90 max-md:ml-2" />
             </div>
           </div>
         </div>

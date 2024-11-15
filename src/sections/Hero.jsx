@@ -75,15 +75,17 @@ const Hero = () => {
                 Is finally a thing of the past! <br /> But don’t take our word
                 for it. Give our voice assistant a listen.
               </p>
-              <div className="flex flex-row space-x-8">
+              <div className="flex flex-row space-x-8 max-md:flex-col max-md:space-y-6 max-md:w-full">
                 <LinkScroll to="features" offset={-100} spy smooth>
                   <Button icon={"/images/zap.svg"} onClick={() => {}}>
                     Learn More
                   </Button>
                 </LinkScroll>
-                <Button icon={"/images/zap.svg"} onClick={() => openPopup()}>
-                  Request a Demo
-                </Button>
+                <div>
+                  <Button icon={"/images/zap.svg"} onClick={() => openPopup()}>
+                    Request a Demo
+                  </Button>
+                </div>
               </div>
             </motion.div>
           </div>

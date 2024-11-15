@@ -17,7 +17,6 @@ const parallaxVariants = {
   },
 };
 
-
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 50 }, // Comes from bottom
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
@@ -72,25 +71,42 @@ const Features = () => {
   return (
     <section>
       <Element name="features" id="features-section">
+        <div className="flex flex-col justify-center text-center items-center">
+          <motion.h1
+            className="h3 mb-0 text-p4 text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.9 }}
+            variants={fadeUpVariants} // Apply fade from left to right for title
+          >
+            Drowning in sales tasks? Send AIDE
+          </motion.h1>
+          <motion.p
+            className="caption mb-2 text-s3 text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.9 }}
+            variants={fadeUpVariants} // Apply fade from left to right for title
+          >
+            Ok, but what is AIDE?
+          </motion.p>
+          <motion.p
+            className="w-[60%] text-center text-white/70 mb-10 max-md:w-[90%] max-md:mb-0"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.9 }}
+            variants={fadeUpVariants} // Apply fade from left to right for title
+          >
+            We are the first Agentic Adaptive Intelligent Decision Engine
+            (AIDE). In other words, we created a humanlike AI voice assistant
+            that goes beyond doing tedious, repeatable, and black-and-white
+            tasks. [a][b] But how human are they? By paying attention to
+            conversational context and reading between the lines, your voice
+            assistant has both the empathy and skills to do sales.
+          </motion.p>
+        </div>
         {/* Heading with fade-up effect */}
-        <motion.h1
-          className="h3 mb-0 text-p4 text-center"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.9 }}
-          variants={fadeUpVariants} // Apply fade from left to right for title
-        >
-          Drowning in sales tasks? Send AIDE
-        </motion.h1>
-        <motion.p
-          className="caption mb-2 text-s3 text-center"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.9 }}
-          variants={fadeUpVariants} // Apply fade from left to right for title
-        >
-          Ok, but what is AIDE?
-        </motion.p>
+
         <motion.div
           className="container"
           style={{
