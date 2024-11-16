@@ -21,7 +21,7 @@ const fadeUpVariants = {
 
   return (
     <section className="container">
-      <div className="max-w-960 relative mx-auto border-l border-r border-b border-s2 bg-s1/50 pb-10 pt-28 max-xl:max-w-4xl max-lg:border-none max-md:pb-32 max-md:pt-16">
+      <div className="max-w-960 relative mx-auto border-l border-r border-b border-s2 bg-s1/50 pb-10 pt-28 max-xl:max-w-4xl max-lg:border-none max-md:pb-12 max-md:pt-16">
         {/* Caption with fade-up effect */}
         <motion.p
           className="caption mb-2 text-s3 text-center"
