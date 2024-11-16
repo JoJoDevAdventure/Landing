@@ -75,7 +75,7 @@ const Faq = () => {
           <div className="container flex gap-10 max-lg:block">
             {/* Center logo */}
             <div className="rounded-half absolute -top-10 left-[calc(50%-40px)] z-4 flex size-20 items-center justify-center border-2 border-s2 bg-s1">
-              <img src="/images/rep.svg" alt="FAQ Logo" className="w-12 h-12"/>
+              <img src="/images/ai-chat.png" alt="FAQ Logo" className="w-12 h-12"/>
             </div>
 
             {/* FAQ Items - Left Column */}

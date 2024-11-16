@@ -199,27 +199,16 @@ export const logos = [
 
 export const socials = [
   {
-    id: "0",
-    title: "X (formerly Twitter)",
-    icon: "/images/socials/x.svg",
-    url: "#",
-  },
-  {
     id: "1",
-    title: "Threads",
-    icon: "/images/socials/threads.svg",
-    url: "#",
+    title: "Instagram",
+    icon: "/images/socials/instagram.svg",
+    url: "https://www.instagram.com/replicaide/profilecard/?igsh=Ymd3czdtYnMwYmdk",
   },
   {
     id: "2",
-    title: "Instagram",
-    icon: "/images/socials/instagram.svg",
-    url: "#",
+    title: "LinkedIn",
+    icon: "/images/socials/x.svg",
+    url: "https://www.linkedin.com/company/negotiaide/",
   },
-  {
-    id: "3",
-    title: "Discord",
-    icon: "/images/socials/discord.svg",
-    url: "#",
-  },
+  
 ];

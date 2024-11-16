@@ -10,7 +10,7 @@ const ROI = () => {
   const [plan, setPlan] = useState("agency");
 
   // Monthly cost for each plan
-  const planMonthlyCost = plan === "agency" ? 197 : 497;
+  const planMonthlyCost = plan === "agency" ? 250 : 750;
 
   // Calculation of savings based on the inputs
   const weeklySavings =
@@ -113,7 +113,7 @@ const ROI = () => {
                     onChange={() => setPlan("agency")}
                     className="mr-2 accent-p1"
                   />
-                  Agency Plan ($197 per Month)
+                  Monthly Plan ($250 per Month)
                 </label>
                 <label className="flex items-center cursor-pointer">
                   <input
@@ -124,9 +124,10 @@ const ROI = () => {
                     onChange={() => setPlan("saas")}
                     className="mr-2 accent-p1"
                   />
-                  Full SaaS Plan ($497 per Month)
+                  Agency plan Plan ($750 per Month)
                 </label>
               </div>
+              <p className="mt-6 text-white/70">Base Plan : $0.25 / minute</p>
             </div>
           </div>
 
