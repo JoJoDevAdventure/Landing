@@ -14,10 +14,11 @@ const Home = () => {
       <Features />
       <Partners />
       <UseCases/>
+      {/* <Testimonials/> */}
       <ROI/>
       {/* <Pricing/> */}
       <Faq />
-      {/* <Testimonials/> */}
+
       <Contact />
     </div>
   );

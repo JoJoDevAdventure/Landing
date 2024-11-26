@@ -36,13 +36,13 @@ const ROI = () => {
           With our quick ROI calculator
         </motion.p>
         <motion.h1
-          className="h3 mb-24 text-p4 text-center"
+          className="h3 mb-12 text-p4 text-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeUpVariants} // Apply fade from left to right for title
         >
-          See Money Going Back to Your Bank Account
+          Explore AIDE’s Impact
         </motion.h1>
 
         <motion.div
@@ -124,7 +124,7 @@ const ROI = () => {
                     onChange={() => setPlan("saas")}
                     className="mr-2 accent-p1"
                   />
-                  Agency plan Plan ($750 per Month)
+                  Agency Plan ($750 per Month)
                 </label>
               </div>
               <p className="mt-6 text-white/70">Base Plan : $0.25 / minute</p>

@@ -93,9 +93,9 @@ export const faq = [
 export const plans = [
   {
     id: "0",
-    title: "Basic",
-    priceMonthly: 19,
-    priceYearly: 12,
+    title: "Premium",
+    priceMonthly: 100,
+    priceYearly: 89,
     caption: "Great for individuals",
     features: [
       "500MB Cloud Storage",
@@ -108,9 +108,9 @@ export const plans = [
   },
   {
     id: "1",
-    title: "Pro",
-    priceMonthly: 59,
-    priceYearly: 49,
+    title: "Agency",
+    priceMonthly: 250,
+    priceYearly: 239,
     caption: "Best for small teams",
     features: [
       "5GB Cloud Storage",
@@ -124,8 +124,8 @@ export const plans = [
   {
     id: "2",
     title: "Enterprise",
-    priceMonthly: 99,
-    priceYearly: 89,
+    priceMonthly: 750,
+    priceYearly: 729,
     caption: "Perfect for enterprises",
     features: [
       "Unlimited Cloud Storage",

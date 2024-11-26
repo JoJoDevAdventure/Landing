@@ -10,10 +10,9 @@ const useCases = [
       "Streamlining customer support in call centers, making interactions more accessible and efficient.",
   },
   {
-    category: "Manufacturing",
+    category: "Critical Alert & Monitoring",
     title: "Industrial Control",
-    description:
-      "Enabling hands-free control of industrial equipment in noisy environments.",
+    description: "Streamlining operations with real-time monitoring and hands-free control, ensuring safety and efficiency even in the most challenging industrial environments."
   },
   {
     category: "Language Learning",
@@ -26,6 +25,18 @@ const useCases = [
     title: "Software",
     description:
       "Enhancing software accessibility for visually impaired users by enabling conversational interactions.",
+  },
+  {
+    category: "Transportation",
+    title: "Fleet Management",
+    description:
+      "Optimizing transportation operations with real-time tracking, automated scheduling, and predictive maintenance powered by AI insights.",
+  },
+  {
+    category: "Financial Services",
+    title: "Smart Finance Solutions",
+    description:
+      "Revolutionizing financial operations with AI-driven insights for real estate management, debt collection, and beyond—delivering precision, efficiency, and growth opportunities.",
   },
 ];
 
@@ -74,39 +85,33 @@ const UseCases = () => {
         </motion.h1>
 
         {/* Grid layout for use cases */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {[box1X, box2X, box3X, box4X].map((xTransform, index) => (
-            <motion.div
-              key={index}
-              style={{
-                x: xTransform,
-                y: [box1Y, box2Y, box3Y, box4Y][index],
-              }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                duration: 0.8,
-                ease: "easeOut",
-                delay: 0.3 + index * 0.1,
-              }}
-              className="relative p-6 border border-s3 rounded-xl shadow-md bg-g2 group cursor-pointer"
-              whileHover={{ scale: 1.03 }}
-            >
-              {/* Vertical line with hover animation */}
-              <div className="absolute bottom-6 left-6 h-[40%] w-1 bg-p1 transition-all duration-500 group-hover:h-[70%]"></div>
+        <div className="grid grid-cols-3 md:grid-cols-1 gap-8 max-md:flex flex-row">
+          <div className="grid grid-cols-3 md:grid-cols-2 gap-8 max-md:flex max-md:flex-col">
+            {useCases.map((useCase, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  duration: 0.8,
+                  ease: "easeOut",
+                  delay: 0.3 + index * 0.1,
+                }}
+                className="relative p-6 border border-s3 rounded-xl shadow-md bg-g2 group cursor-pointer"
+                whileHover={{ scale: 1.03 }}
+              >
+                {/* Vertical line with hover animation */}
+                <div className="absolute bottom-6 left-6 h-[40%] w-1 bg-p1 transition-all duration-500 group-hover:h-[70%]"></div>
 
-              {/* Content of the use case */}
-              <div className="pl-8">
-                <p className="caption font-semibold">
-                  {useCases[index].category}
-                </p>
-                <h3 className="h4 text-xl font-bold mb-2">
-                  {useCases[index].title}
-                </h3>
-                <p className="text-white/80">{useCases[index].description}</p>
-              </div>
-            </motion.div>
-          ))}
+                {/* Content of the use case */}
+                <div className="pl-8">
+                  <p className="caption font-semibold">{useCase.category}</p>
+                  <h3 className="h4 text-xl font-bold mb-2">{useCase.title}</h3>
+                  <p className="text-white/80">{useCase.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </Element>
     </section>

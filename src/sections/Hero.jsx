@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
-import { Element, Link as LinkScroll } from "react-scroll";
+import { Element } from "react-scroll";
 import Button from "../components/Button";
 import VideoPlayer from "../components/VideoPlayer";
 import { openPopup } from "../stores/popupStore";
@@ -71,16 +71,25 @@ const Hero = () => {
               viewport={{ once: true, amount: 0.3 }}
               variants={pButtonVariants}
             >
-              <p className="max-w-460 mb-14 body-1 max-md:mb-10 mx-auto lg:mx-0">
-                Is finally a thing of the past! <br /> But don’t take our word
-                for it. Give our voice assistant a listen.
+              <p className="max-w-460 mb-14 body-1 max-md:mb-6 mx-auto lg:mx-0">
+                Finally a thing of the past! <br /> Fewer human hours spent on
+                sales tasks.
+                <br />
+                Same <span className="italic text-p3"> humanity</span> in the
+                sales process.
               </p>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={pButtonVariants}
+                className="flex flex-row justify-center items-end mb-12 align-middle md:hidden gap-3"
+              >
+                <p className="">With</p>
+                <img className="h-12" src="/images/aide.png" alt="" />
+              </motion.div>
+
               <div className="flex flex-row space-x-8 max-md:flex-col max-md:space-y-6 max-md:w-full">
-                <LinkScroll to="features" offset={-100} spy smooth>
-                  <Button icon={"/images/zap.svg"} onClick={() => {}}>
-                    Learn More
-                  </Button>
-                </LinkScroll>
                 <div>
                   <Button icon={"/images/zap.svg"} onClick={() => openPopup()}>
                     Request a Demo
@@ -92,12 +101,28 @@ const Hero = () => {
 
           {/* Video Section */}
           <motion.div
-            className="lg:w-[40%] mt-10 lg:mt-0 lg:ml-10 flex justify-center lg:justify-end z-2"
+            className="lg:w-[40%] mt-10 lg:mt-0 lg:ml-10 flex flex-col justify-center lg:justify-end z-2"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={videoVariants}
           >
+            <div className="md:hidden">
+              <h1 className="h1 mb-6 text-p4 max-lg:mb-7 max-lg:h2 max-md:mb-2 max-md:text-2xl max-md:leading-12 text-center">
+                Automated phone systems that have you yelling
+              </h1>
+              <h1 className="h1 mb-6 text-p4 uppercase max-lg:mb-7 max-lg:h2 max-md:mb-0 max-md:text-3xl max-md:leading-12 text-center">
+                <span className="text-p3"> ‘TAKE ME TO A
+                PERSON’</span>
+              </h1>
+              <h1 className="h1 mb-6 text-p4 max-lg:mb-7 max-lg:h2 max-md:mb-2 max-md:text-2xl max-md:leading-12 text-center">
+                ... so 2020
+              </h1>
+              <p className="max-w-460 mb-14 body-1 max-md:mb-6 mx-auto lg:mx-0 text-center">
+                But don’t take our word for it. <br />Give our voice assistant a
+                listen.
+              </p>
+            </div>
             <VideoPlayer
               src="/images/Demo2.mp4"
               thumbnailSrc="/images/thumbnail2.jpg"

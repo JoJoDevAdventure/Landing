@@ -99,10 +99,7 @@ const Features = () => {
           >
             We are the first Agentic Adaptive Intelligent Decision Engine
             (AIDE). In other words, we created a humanlike AI voice assistant
-            that goes beyond doing tedious, repeatable, and black-and-white
-            tasks. [a][b] But how human are they? By paying attention to
-            conversational context and reading between the lines, your voice
-            assistant has both the empathy and skills to do sales.
+            that goes beyond doing tedious, repeatable, or black-&-white tasks.
           </motion.p>
         </div>
         {/* Heading with fade-up effect */}
@@ -228,6 +225,42 @@ const Features = () => {
                     {description}
                   </p>
                 </li>
+              ))}
+            </motion.ul>
+
+            {/* Details Section */}
+            <motion.ul
+              className="hidden max-md:flex flex-col relative justify-around flex-grow px-[5%] border-2 border-s3 rounded-7xl  z-2"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={detailsVariants}
+            >
+              <div className="absolute bg-s3/20 top-[38%] left-0 right-0 w-full h-[1px]" />
+              {details.map(({ id, icon, title, description }) => (
+                <motion.li
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
+                  variants={detailsVariants}
+                  key={id}
+                  className="relative p-4 px-4"
+                >
+                  <div className="absolute top-8 bottom-0 left-1/2 bg-s3/20 w-[1px] h-full z-20" />
+                  <div className="flex items-center justify-center mx-auto mb-3 border-2 border-s2 rounded-full hover:border-s4 transition-all duration-500 size-20">
+                    <img
+                      src={icon}
+                      alt={title}
+                      className="size-17/20 object-contain z-20"
+                    />
+                  </div>
+                  <h3 className="relative z-2 max-36 mx-auto my-0 base-small text-center uppercase">
+                    {title}
+                  </h3>
+                  <p className="relative z-3 max-26 mx-auto mt-3 text-white/80 text-center">
+                    {description}
+                  </p>
+                </motion.li>
               ))}
             </motion.ul>
           </div>
