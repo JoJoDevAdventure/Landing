@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import React from "react";
 import { Element } from "react-scroll";
 
@@ -46,20 +46,6 @@ const fadeUpVariants = {
 };
 
 const UseCases = () => {
-  const { scrollY } = useScroll();
-
-  // Define parallax transforms for each box's initial and final positions
-  const box1X = useTransform(scrollY, [0, 2400], [-400, 0]);
-  const box1Y = useTransform(scrollY, [0, 1800], [-400, 0]);
-
-  const box2X = useTransform(scrollY, [0, 2400], [400, 0]);
-  const box2Y = useTransform(scrollY, [0, 1800], [-400, 0]);
-
-  const box3X = useTransform(scrollY, [0, 2400], [-400, 0]);
-  const box3Y = useTransform(scrollY, [0, 2400], [400, 0]);
-
-  const box4X = useTransform(scrollY, [0, 2400], [400, 0]);
-  const box4Y = useTransform(scrollY, [0, 2400], [400, 0]);
 
   return (
     <section className="container mx-auto py-16">

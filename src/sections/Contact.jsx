@@ -47,6 +47,13 @@ const Contact = () => {
           className="container flex flex-col lg:flex-row-reverse py-20"
         >
           <div className="testimonials_head-res relative z-2 lg:w-1/3 lg:mr-20 mb-10 lg:mb-0">
+          <motion.p
+              className="mb-5 max-md:mb-2.5"
+              initial="hidden"
+              whileInView="visible"
+            >
+              By 2028, AI is expected to handle 60% of sales tasks. In 2023, it handled 45%. We mixed a smart computer brain with an empathetic conversationalist, so you can be at the forefront of sales efficiency and effectiveness. 
+            </motion.p>
             <motion.p
               className="caption mb-5 max-md:mb-2.5"
               initial="hidden"
@@ -59,7 +66,7 @@ const Contact = () => {
               initial="hidden"
               whileInView="visible"
             >
-              It's easy to get in touch
+              Try it for free
             </motion.h3>
           </div>
 
