@@ -66,7 +66,7 @@ const Contact = () => {
               initial="hidden"
               whileInView="visible"
             >
-              Try it for free
+              Try it for freea
             </motion.h3>
           </div>
 

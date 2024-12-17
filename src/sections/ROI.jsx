@@ -127,7 +127,7 @@ const ROI = () => {
                   Agency Plan ($750 per Month)
                 </label>
               </div>
-              <p className="mt-6 text-white/70">Base Plan : $0.25 / minute</p>
+              <p className="mt-6 text-white/70">Base Plan : $1.25 / minute</p>
             </div>
           </div>
 
